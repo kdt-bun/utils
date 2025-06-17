@@ -1,0 +1,59 @@
+{
+    "name": "@kdt-bun/utils",
+    "type": "module",
+    "version": "0.0.0",
+    "packageManager": "pnpm@10.12.1",
+    "description": "Comprehensive JavaScript/TypeScript utility library providing helper functions for arrays, objects, strings, promises, and more across all runtime environments to simplify common tasks and enhance code readability",
+    "author": "Diep Dang <kdt310722@gmail.com>",
+    "license": "MIT",
+    "homepage": "https://github.com/kdt-bun/utils",
+    "repository": "github:kdt-bun/utils",
+    "bugs": {
+        "email": "kdt310722@gmail.com",
+        "url": "https://github.com/kdt-bun/utils/issues"
+    },
+    "sideEffects": false,
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "require": "./dist/index.cjs",
+            "default": "./dist/index.js"
+        }
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": ["dist", "src"],
+    "scripts": {
+        "build": "rimraf dist && tsup && tsc --project ./tsconfig.build.json",
+        "release": "tsx scripts/release.ts && changelogen gh release && pnpm publish",
+        "up": "ncu -i",
+        "typecheck": "tsc --noEmit",
+        "prepare": "npx only-allow pnpm && simple-git-hooks",
+        "prepublishOnly": "pnpm build"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.8.1",
+        "@commitlint/config-conventional": "^19.8.1",
+        "@kdt-bun/tsconfig": "^0.0.2",
+        "@swc/core": "^1.12.1",
+        "@types/node": "^24.0.3",
+        "changelogen": "^0.6.1",
+        "execa": "^9.6.0",
+        "npm-check-updates": "^18.0.1",
+        "only-allow": "^1.2.1",
+        "rimraf": "^6.0.1",
+        "simple-git-hooks": "^2.13.0",
+        "tsup": "^8.5.0",
+        "tsx": "^4.20.3",
+        "typescript": "^5.8.3"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "commitlint": {
+        "extends": "@commitlint/config-conventional"
+    },
+    "simple-git-hooks": {
+        "commit-msg": "npx --no -- commitlint --edit ${1}"
+    }
+}
