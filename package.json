@@ -1,7 +1,7 @@
 {
     "name": "@kdt-bun/utils",
     "type": "module",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "packageManager": "pnpm@10.12.1",
     "description": "Comprehensive JavaScript/TypeScript utility library providing helper functions for arrays, objects, strings, promises, and more across all runtime environments to simplify common tasks and enhance code readability",
     "author": "Diep Dang <kdt310722@gmail.com>",
@@ -22,7 +22,10 @@
     },
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "files": ["dist", "src"],
+    "files": [
+        "dist",
+        "src"
+    ],
     "scripts": {
         "build": "rimraf dist && tsup && tsc --project ./tsconfig.build.json",
         "release": "tsx scripts/release.ts && changelogen gh release && pnpm publish",
