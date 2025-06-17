@@ -30,18 +30,23 @@
         "build": "rimraf dist && tsup && tsc --project ./tsconfig.build.json",
         "release": "tsx scripts/release.ts && changelogen gh release && pnpm publish",
         "up": "ncu -i",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
         "typecheck": "tsc --noEmit",
-        "prepare": "npx only-allow pnpm && simple-git-hooks",
+        "prepare": "only-allow pnpm && simple-git-hooks",
         "prepublishOnly": "pnpm build"
     },
     "devDependencies": {
         "@commitlint/cli": "^19.8.1",
         "@commitlint/config-conventional": "^19.8.1",
+        "@kdt-bun/eslint-config": "^0.0.1",
         "@kdt-bun/tsconfig": "^0.0.2",
         "@swc/core": "^1.12.1",
         "@types/node": "^24.0.3",
         "changelogen": "^0.6.1",
+        "eslint": "^9.29.0",
         "execa": "^9.6.0",
+        "lint-staged": "^16.1.2",
         "npm-check-updates": "^18.0.1",
         "only-allow": "^1.2.1",
         "rimraf": "^6.0.1",
@@ -57,6 +62,10 @@
         "extends": "@commitlint/config-conventional"
     },
     "simple-git-hooks": {
-        "commit-msg": "npx --no -- commitlint --edit ${1}"
+        "commit-msg": "npx --no -- commitlint --edit ${1}",
+        "pre-commit": "npx lint-staged"
+    },
+    "lint-staged": {
+        "*": "eslint --fix"
     }
 }

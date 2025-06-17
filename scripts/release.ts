@@ -14,6 +14,7 @@ await run('changelogen', [
     '--no-github',
 ])
 
+await run('pnpm', ['lint:fix'])
 await run('git', ['add', 'CHANGELOG.md', 'package.json'])
 
 await import('../package.json').then((m) => `v${m.version}`).then(async (version) => {
