@@ -1,4 +1,4 @@
-import type { AnyObject } from './types'
+import type { AnyObject, UnknownObject } from './types'
 import { isArray } from '../arrays'
 import { toString } from '../core'
 
@@ -6,7 +6,7 @@ export function isObject(value: unknown): value is AnyObject {
     return value !== null && typeof value === 'object' && !isArray(value)
 }
 
-export function isPlainObject(value: unknown): value is AnyObject {
+export function isPlainObject(value: unknown): value is UnknownObject {
     return toString(value) === '[object Object]'
 }
 
