@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/kdt-bun/utils/compare/v0.0.3...v0.0.4)
+
+### 🩹 Fixes
+
+- Update isPlainObject return type to UnknownObject ([5048f31](https://github.com/kdt-bun/utils/commit/5048f31))
+
+### ❤️ Contributors
+
+- DiepPk <kdt310722@gmail.com>
+
 ## v0.0.3
 
 [compare changes](https://github.com/kdt-bun/utils/compare/v0.0.2...v0.0.3)
