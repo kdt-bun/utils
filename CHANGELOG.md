@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/kdt-bun/utils/compare/v0.0.4...v0.0.5)
+
+### 🩹 Fixes
+
+- Ensure cause is set only when options.cause is defined ([2d2d627](https://github.com/kdt-bun/utils/commit/2d2d627))
+
+### ❤️ Contributors
+
+- DiepPk <kdt310722@gmail.com>
+
 ## v0.0.4
 
 [compare changes](https://github.com/kdt-bun/utils/compare/v0.0.3...v0.0.4)
