@@ -1,24 +1,24 @@
-import type { AnyObject, FilterPredicate, UnknownObject } from './types'
+import type { AnyObject, FilterPredicate } from './types'
 import { isArray, unique } from '../arrays'
 import { isPlainObject } from './guards'
 
-export function entries<O extends UnknownObject>(obj: O) {
+export function entries<O extends AnyObject>(obj: O) {
     return Object.entries(obj) as Array<[keyof O, O[keyof O]]>
 }
 
-export function filter<O extends UnknownObject>(obj: O, predicate: FilterPredicate<O, keyof O>) {
+export function filter<O extends AnyObject>(obj: O, predicate: FilterPredicate<O, keyof O>) {
     return Object.fromEntries(entries(obj).filter(([key, value], index) => predicate(key, value, index)))
 }
 
-export function filterByValue<O extends UnknownObject>(obj: O, predicate: (value: O[keyof O]) => boolean) {
+export function filterByValue<O extends AnyObject>(obj: O, predicate: (value: O[keyof O]) => boolean) {
     return filter(obj, (_, value) => predicate(value))
 }
 
-export function pick<O extends UnknownObject, K extends keyof O>(obj: O, ...keys: K[]) {
+export function pick<O extends AnyObject, K extends keyof O>(obj: O, ...keys: K[]) {
     return filter(obj, (key) => keys.includes(key as K)) as Pick<O, K>
 }
 
-export function omit<O extends UnknownObject, K extends keyof O>(object: O, ...keys: K[]) {
+export function omit<O extends AnyObject, K extends keyof O>(object: O, ...keys: K[]) {
     return filter(object, (key) => !keys.includes(key as K)) as Omit<O, K>
 }
 
@@ -30,7 +30,7 @@ export interface DeepMergeOptions {
     arrayMergeMode?: 'replace' | 'merge' | 'merge-dedupe'
 }
 
-export function deepMerge<T extends UnknownObject, U extends UnknownObject>(target: T, source: U, { arrayMergeMode = 'replace' }: DeepMergeOptions = {}): T & U {
+export function deepMerge<T extends AnyObject, U extends AnyObject>(target: T, source: U, { arrayMergeMode = 'replace' }: DeepMergeOptions = {}): T & U {
     const result: AnyObject = { ...target }
 
     for (const key of Object.keys(source)) {

@@ -1,23 +1,23 @@
-import type { UnknownObject } from './types'
+import type { AnyObject } from './types'
 import { isArray } from '../arrays'
 import { toString } from '../core'
 
-export function isObject(value: unknown): value is UnknownObject {
+export function isObject(value: unknown): value is AnyObject {
     return value !== null && typeof value === 'object' && !isArray(value)
 }
 
-export function isPlainObject(value: unknown): value is UnknownObject {
+export function isPlainObject(value: unknown): value is AnyObject {
     return toString(value) === '[object Object]'
 }
 
-export function isEmptyObject(value: UnknownObject) {
+export function isEmptyObject(value: AnyObject) {
     return Object.keys(value).length === 0
 }
 
-export function isKeyOf<T extends UnknownObject>(obj: T, name: PropertyKey): name is keyof T {
+export function isKeyOf<T extends AnyObject>(obj: T, name: PropertyKey): name is keyof T {
     return name in obj
 }
 
-export function isKeysOf<T extends PropertyKey>(data: UnknownObject, ...keys: T[]): data is Record<T, unknown> {
+export function isKeysOf<T extends PropertyKey>(data: AnyObject, ...keys: T[]): data is Record<T, unknown> {
     return keys.every((key) => isKeyOf(data, key))
 }
