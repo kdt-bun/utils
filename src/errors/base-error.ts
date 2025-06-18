@@ -26,7 +26,7 @@ export class BaseError extends Error {
         this.name = name ?? this.constructor.name
         this.timestamp = new Date()
 
-        if (this.cause === undefined) {
+        if (this.cause === undefined && options.cause !== undefined) {
             this.cause = options.cause
         }
 
