@@ -5,6 +5,7 @@ export type ErrorCode = string | number | symbol
 export interface ErrorOptions extends globalThis.ErrorOptions {
     name?: string
     code?: ErrorCode
+    cause?: unknown
     details?: string
     exitCode?: number
     retryable?: boolean
@@ -14,6 +15,7 @@ export class BaseError extends Error {
     public readonly timestamp: Date
 
     public declare readonly code?: ErrorCode
+    public declare readonly cause?: unknown
     public declare readonly details?: string
     public declare readonly exitCode?: number
     public declare readonly retryable?: boolean
@@ -23,6 +25,10 @@ export class BaseError extends Error {
 
         this.name = name ?? this.constructor.name
         this.timestamp = new Date()
+
+        if (this.cause === undefined) {
+            this.cause = options.cause
+        }
 
         this.withValue('code', code)
         this.withValue('details', details)
