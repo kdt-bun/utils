@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.7
+
+[compare changes](https://github.com/kdt-bun/utils/compare/v0.0.6...v0.0.7)
+
+### 💅 Refactors
+
+- Rename JSON-RPC factory methods ([423875d](https://github.com/kdt-bun/utils/commit/423875d))
+
+### ❤️ Contributors
+
+- DiepPk <kdt310722@gmail.com>
+
 ## v0.0.6
 
 [compare changes](https://github.com/kdt-bun/utils/compare/v0.0.5...v0.0.6)
