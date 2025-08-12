@@ -1,7 +1,7 @@
 {
     "name": "@kdt-bun/utils",
     "type": "module",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "packageManager": "pnpm@10.14.0",
     "description": "Comprehensive JavaScript/TypeScript utility library providing helper functions for arrays, objects, strings, promises, and more across all runtime environments to simplify common tasks and enhance code readability",
     "author": "Diep Dang <kdt310722@gmail.com>",

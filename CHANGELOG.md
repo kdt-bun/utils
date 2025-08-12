@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.0.6
+
+[compare changes](https://github.com/kdt-bun/utils/compare/v0.0.5...v0.0.6)
+
+### 🚀 Enhancements
+
+- Add some JSON-RPC utils ([f5819d9](https://github.com/kdt-bun/utils/commit/f5819d9))
+- Improve abort controller factory ([99c9cc2](https://github.com/kdt-bun/utils/commit/99c9cc2))
+
+### 🏡 Chore
+
+- Update deps ([c6b4d17](https://github.com/kdt-bun/utils/commit/c6b4d17))
+
+### ❤️ Contributors
+
+- DiepPk <kdt310722@gmail.com>
+
 ## v0.0.5
 
 [compare changes](https://github.com/kdt-bun/utils/compare/v0.0.4...v0.0.5)
