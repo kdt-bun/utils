@@ -28,7 +28,7 @@ export function createTimeoutError(message = 'The operation was aborted due to a
 export function createAbortController(timeout?: number, timeoutError?: EnsureErrorInput) {
     const controller = new AbortController()
 
-    if (notNullish(timeout)) {
+    if (notNullish(timeout) && timeout > 0 && timeout <= Number.MAX_SAFE_INTEGER) {
         let timeoutId: NodeJS.Timeout
 
         const cleanup = () => {
